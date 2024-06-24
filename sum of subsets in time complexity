@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void findSubsets(int arr[], int n, int subset[], int subsetSize, int total, int targetSum, int start) {
+    if (total == targetSum) {
+        printf("Subset is (");
+        for (int i = 0; i < subsetSize; i++) {
+            printf("%d", subset[i]);
+            if (i < subsetSize - 1) {
+                printf(", ");
+            }
+        }
+        printf(")\n");
+        return;
+    }
+
+    for (int i = start; i < n; i++) {
+        if (total + arr[i] <= targetSum) {
+            subset[subsetSize] = arr[i];
+            findSubsets(arr, n, subset, subsetSize + 1, total + arr[i], targetSum, i + 1);
+        }
+    }
+}
+
+void sumOfSubsets(int arr[], int n, int targetSum) {
+    int subset[n];
+    findSubsets(arr, n, subset, 0, 0, targetSum, 0);
+}
+
+int main() {
+    int arr1[] = {6, 2, 8, 1, 5};
+    int targetSum1 = 9;
+    printf("Input: Set (s) = {6, 2, 8, 1, 5}, sum is %d\n", targetSum1);
+    sumOfSubsets(arr1, 5, targetSum1);
+
+    int arr2[] = {6, -4, 7, -1, 5, 2, 8, 1};
+    int targetSum2 = 10;
+    printf("\nInput: Set (s) = {6, -4, 7, -1, 5, 2, 8, 1}, sum is %d\n", targetSum2);
+    sumOfSubsets(arr2, 8, targetSum2);
+
+    return 0;
+}
