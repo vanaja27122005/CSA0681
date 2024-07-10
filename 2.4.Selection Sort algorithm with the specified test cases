@@ -1,0 +1,25 @@
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+test_cases = [
+    ([64, 25, 12, 22, 11], [11, 12, 22, 25, 64]),
+    ([29, 10, 14, 37, 13], [10, 13, 14, 29, 37]),
+    ([3, 5, 2, 1, 4], [1, 2, 3, 4, 5]),
+    ([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]),
+    ([5, 4, 3, 2, 1], [1, 2, 3, 4, 5])
+]
+for i, (input_arr, expected_output) in enumerate(test_cases):
+    sorted_arr = selection_sort(input_arr)
+    print(f"Test Case {i + 1}:")
+    print(f"Input: {input_arr}")
+    print(f"Expected Output: {expected_output}")
+    print(f"Actual Output: {sorted_arr}")
+    assert sorted_arr == expected_output, "Test failed!"
+    print("Test passed!")
+    print()
