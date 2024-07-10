@@ -1,0 +1,18 @@
+def process_list(numbers):
+    if not numbers:
+        return "The list is empty."
+    # Sorting the list
+    sorted_numbers = sorted(numbers)
+    # Finding the maximum element
+    max_element = sorted_numbers[-1]
+    return max_element
+input1 = []
+print(f"Input: {input1}, Output: {process_list(input1)}")  # Output: "The list is empty."
+input2 = [5]
+print(f"Input: {input2}, Output: {process_list(input2)}")  # Output: 5
+input3 = [3, 3, 3, 3, 3]
+print(f"Input: {input3}, Output: {process_list(input3)}")  # Output: 3
+input4 = [4, 2, 7, 1, 9, 3]
+print(f"Input: {input4}, Output: {process_list(input4)}")  # Output: 9
+input5 = [-10, -5, -3, -1, -20]
+print(f"Input: {input5}, Output: {process_list(input5)}")  # Output: -1
