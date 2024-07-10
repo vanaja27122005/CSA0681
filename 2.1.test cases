@@ -1,0 +1,20 @@
+def test_cases():
+    input1 = []
+    print(f"Input: {input1}")
+    print(f"Expected Output: {empty_list(input1)}")
+    print()
+    input2 = [1]
+    print(f"Input: {input2}")
+    print(f"Expected Output: {empty_list(input2)}")
+    print()
+    input3 = [7, 7, 7, 7]
+    print(f"Input: {input3}")
+    print(f"Expected Output: {empty_list(input3)}")
+    print()
+    input4 = [-5, -1, -3, -2, -4]
+    print(f"Input: {input4}")
+    print(f"Expected Output: {empty_list(input4)}")
+    print()
+def empty_list(lst):
+    return sorted(lst)
+test_cases()
