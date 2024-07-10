@@ -1,0 +1,23 @@
+def rob(nums):
+    if not nums:
+        return 0
+    if len(nums) == 1:
+        return nums[0]
+    if len(nums) == 2:
+        return max(nums[0], nums[1])
+        def rob_range(nums, start, end):
+        if start == end:
+            return nums[start]
+        if start + 1 == end:
+            return max(nums[start], nums[end])
+        dp = [0] * len(nums)
+        dp[start] = nums[start]
+        dp[start + 1] = max(nums[start], nums[start + 1])
+        for i in range(start + 2, end + 1):
+            dp[i] = max(dp[i - 1], nums[i] + dp[i - 2])
+        return dp[end]
+        return max(rob_range(nums, 0, len(nums) - 2), rob_range(nums, 1, len(nums) - 1))
+nums1 = [2, 3, 2]
+nums2 = [1, 2, 3, 1]
+print("Maximum money that can be robbed without alerting the police (Scenario 1):", rob(nums1))  # Output: 3
+print("Maximum money that can be robbed without alerting the police (Scenario 2):", rob(nums2))  # Output: 4
