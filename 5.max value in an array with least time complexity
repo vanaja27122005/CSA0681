@@ -1,0 +1,14 @@
+def find_maximum(arr):
+    if not arr:
+        return None  # In case the array is empty
+    max_val = arr[0]
+    for num in arr:
+        if num > max_val:
+            max_val = num
+    return max_val
+input1 = [1, 2, 3, 4, 5]
+print(f"Input: {input1}, Expected Output: {find_maximum(input1)}")  # Output: 5
+input2 = [7, 7, 7, 7, 7]
+print(f"Input: {input2}, Expected Output: {find_maximum(input2)}")  # Output: 7
+input3 = [-10, 2, 3, -4, 5]
+print(f"Input: {input3}, Expected Output: {find_maximum(input3)}")  # Output: 5
