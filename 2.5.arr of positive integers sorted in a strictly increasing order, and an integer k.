@@ -1,0 +1,21 @@
+def find_kth_missing_positive(arr, k):
+    missing_count = 0
+    current_number = 1
+    index = 0
+    while missing_count < k:
+        if index < len(arr) and arr[index] == current_number:
+            index += 1
+        else:
+            missing_count += 1
+        if missing_count == k:
+            return current_number
+        current_number += 1
+    return current_number + k - missing_count - 1
+arr1 = [2, 3, 4, 7, 11]
+k1 = 5
+print(f"Input: arr = {arr1}, k = {k1}")
+print("Output:", find_kth_missing_positive(arr1, k1))  # Output: 9
+arr2 = [1, 2, 3, 4]
+k2 = 2
+print(f"Input: arr = {arr2}, k = {k2}")
+print("Output:", find_kth_missing_positive(arr2, k2))  # Output: 6
